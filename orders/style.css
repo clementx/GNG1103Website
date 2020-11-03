@@ -1,132 +1,64 @@
-body {
-  font: 100% / 1.414 "Open Sans", "Roboto", arial, sans-serif;
-  background: #e9e9e9;
+nav ul {
+	overflow:hidden; 
+	overflow-y:scroll;
 }
 
-a,
-[type="submit"] {
-  -webkit-transition: all .25s ease-in;
-  transition: all .25s ease-in;
+nav li {
+	border : 5px solid transparent;
 }
 
-.app__container {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  margin-right: auto;
-  margin-left: auto;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  overflow: hidden;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  width: 50rem;
-  height: 30rem;
-  border-radius: 0.1875rem;
-  box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
+.order_list_div {
+	margin-right:10px;
+	width:20%;
+	float: left;
 }
 
-.signup__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.76);
+.order_content_div {
+	margin-right:10px;
+	width:40%;
+	float: left;
 }
 
-.container__child {
-  width: 50%;
-  height: 100%;
-  color: #fff;
+.order_list {
+	height:45rem; 
+	list-style-type: none;
+	text-align: center;
 }
 
-.app_menu {
-  width: 10%;
-  height: 100%;
-  color: #000000;
-  position: relative;
-  padding: 0.5rem;
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-          align-items: center;
-  background: url(http://ultraimg.com/images/spectre-login.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+.order_content {
+	height:45rem; 
+	width:100%;
+	list-style-type: none;
 }
 
-.menu_content {
-  padding-left: 1em;
+.chat_switch {
+  padding-left: 0.1em;
   width: 50px;
-  height: auto;
+  height: 50px;
 }
 
-h1,
-h2 {
-  font-weight: 300;
-  color: white;
+.chat {
+	padding-left : 55em;
 }
 
-.page_content {
-  width: 90%;
-  height: 100%;
-  color: #fff;
-  padding: 2.5rem;
-  background: #fafafa;
+.message_holder {
+	width:100%;
+	height:auto;
 }
 
-label {
-  font-size: .85rem;
-  text-transform: uppercase;
-  color: #ccc;
+.message_field {
+	width:100%;
 }
 
-.form-control {
-  background-color: transparent;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-radius: 0;
-}
-.form-control:focus {
-  border-color: #111;
+.halfButton {
+	width:49.55%;
+	height:50px;
+	margin-bottom:5px;
+	border:none;
 }
 
-[type="text"] {
-  color: #111;
-}
-
-[type="password"] {
-  color: #111;
-}
-
-.btn--form {
-  padding: .5rem 2.5rem;
-  font-size: .95rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #fff;
-  background: #111;
-  border-radius: 2.1875rem;
-}
-.btn--form:focus, .btn--form:hover {
-  background: #323232;
-}
-
-.signup__link {
-  font-size: .8rem;
-  font-weight: 600;
-  text-decoration: underline;
-  color: #999;
-}
-.signup__link:focus, .signup__link:hover {
-  color: #787878;
+.fullButton {
+	width:100%;
+	height:50px;
+	border:none;
 }

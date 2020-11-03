@@ -3,18 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <title>JAMZ Delivery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="orders/style.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="misc/universal.css">
+  <link rel="stylesheet" href="orders/style.css">
+  <script type="text/javascript">
+	function load() {
+		var orderList = document.getElementById("order_list_content");
+		orderList.innerHTML = "";
+		for (var i = 0; i < 20; i++) {
+			var order = document.createElement("li");
+			
+			if (i < 3) {
+				order.style.background = "#fc0303";
+			}
+			else if (i < 8) {
+				order.style.background = "#f8fc03";
+			}
+			else
+				order.style.background = "#07fc03";
+				
+			order.appendChild(document.createTextNode("Order# "));
+			order.appendChild(document.createTextNode(139234+i));			
+			order.appendChild(document.createElement("br"));
+			order.appendChild(document.createTextNode("22/03/2021"));
+			order.setAttribute("onclick","showOrder(" + i + ")");
+			orderList.appendChild(order);
+		}
+	}
+	function showOrder(i) {
+		var orderContent = document.getElementById("order_content_content");
+		orderContent.innerHTML = "";
+		for (var x = 0; x < (2+i); x++) {
+			var item = document.createElement("li");
+			item.appendChild(document.createTextNode("Item# "));
+			item.appendChild(document.createTextNode(139234+x));			
+			item.appendChild(document.createElement("br"));
+			item.appendChild(document.createTextNode("No options"));
+			orderContent.appendChild(item);
+		}
+	}
+	function switchChat() {
+		var title = document.getElementById("chat_title");
+		if (title.innerHTML.includes("Operator")) {
+			title.innerHTML = "Customer Chat";
+		}
+		else {
+			title.innerHTML = "Operator Chat";
+		}
+		var img = document.createElement("img");
+		img.setAttribute("class","chat_switch");
+		img.setAttribute("src","misc/switch.svg");
+		img.setAttribute("onclick","switchChat()");
+		title.appendChild(img);
+	}
+	function acceptReject(i) {
+		if (i) {
+			alert("Order Accepted");
+		}
+		else {
+			alert("Order Rejected");
+		}
+	}
+	function problem() {
+		alert("Not implemented yet");
+	}
+  </script>
 </head>
-<body>
-<!-- partial:index.partial.html -->
+<body onload="load();">
 <div class="app__container">
   <div class="app_menu">
-    <div>
       <ul class="menu_content">
 		<li>
 			<a href="./menu.html" alt="Manage menu items">
@@ -32,37 +94,94 @@
 			<a href="./settings.html" alt="Manage profile/app settings">
 			<img src="misc/settings.svg"></a></li>
 	  </ul>
-    </div>
   </div>
   <div class="page_content">
-    <form action="#">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input class="form-control" type="text" name="username" id="username" placeholder="james.bond" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" type="text" name="email" id="email" placeholder="james.bond@spectre.com" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
-      </div>
-      <div class="form-group">
-        <label for="passwordRepeat">Repeat Password</label>
-        <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
-      </div>
-      <div class="m-t-lg">
-        <ul class="list-inline">
-          <li>
-            <input class="btn btn--form" type="submit" value="Register" />
-          </li>
-          <li>
-            <a class="signup__link" href="#">I am already a member</a>
-          </li>
-        </ul>
-      </div>
-    </form>  
+    <div class="order_list_div">
+		<nav>
+			<ul class="order_list" id="order_list_content">	
+				<li style="background:#fc0303">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#fc0303">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#f8fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#f8fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#f8fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#f8fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>	
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>
+				<li style="background:#07fc03">
+					Order# 123456
+					<br>12/02/2023
+				</li>				
+			</ul>
+		</nav>
+	</div>
+	<div class="order_content_div">
+		<nav>
+			<ul class="order_content" id="order_content_content">
+				<li>Please select an order to begin</li>
+			</ul>
+		</nav>
+	</div>
+	<div><br><br>
+		<div class="chat">
+			<h1 id="chat_title">Operator Chat<img class="chat_switch" src="misc/switch.svg" onclick="switchChat()"></h1>
+			<form action="sendMessage()">
+				<textarea rows="15" class="message_holder" placeholder="No messages yet" id="msgHist"></textarea><br>
+				<textarea class="message_field" placeholder="Enter message..." id="msg" required></textarea>
+				<button type="submit">Send</button>
+			</form>
+		</div>
+		<br>
+		<div class="chat">
+			<button class="halfButton" style="background:#07fc03" onclick="acceptReject(1)">Accept</button>
+			<button class="halfButton" style="background:#fc0303" onclick="acceptReject(0)">Reject</button>
+			<br>
+			<button class="fullButton" onclick="problem()">Report Problem</button>
+		</div>
+	</div>
   </div>
 </div>
 <!-- partial -->
