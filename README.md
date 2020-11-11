@@ -4,6 +4,5 @@ The misc folder contains common elements used by all pages. We could add a unive
 modify this single sheet and it will affect all pages.
 
 # JAMZ Prototype Submission
-There is limited interaction between the various pages of the app. Sam and I worked closely so our pages (menu editor and order manager) are the closest to done. The
-login pages will not inherently interact with many other pages after the app starts up and as such their functionality is not well developed at this point. Finally,
+There is limited interaction between the various pages of the app. Sam and I worked closely so our pages (menu editor and order manager) are the closest to being done. The login pages will not inherently interact with many other pages after the app starts up and as such their functionality is not well developed at this point. Finally,
 the settings and profile pages are still a work in progress.
