@@ -1,0 +1,259 @@
+body {
+  font: 100% / 1.414 "Open Sans", "Roboto", arial, sans-serif;
+  background: #e9e9e9;
+}
+
+a,
+[type="submit"] {
+  -webkit-transition: all .25s ease-in;
+  transition: all .25s ease-in;
+}
+
+.signup__container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  overflow: hidden;
+  display: -webkit-box;
+  display: block;
+  -webkit-box-align: top;
+          align-items: top;
+  -webkit-box-pack: top;
+          justify-content: top;
+  width: 50rem;
+  height: 60rem;
+  border-radius: 0.1875rem;
+  box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
+  background: #fafafa; 
+}
+
+.content__container {
+		float: left;
+        height: 470px;
+        width: 23%;
+        padding: 0 10px;
+}
+
+.dropbox {
+   position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 0.1875rem;
+  box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
+  background: #3c3c3c; 
+}
+
+.dropbox__text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+}
+	
+.dropbox__text:focus, .dropbox__text:hover {
+color: #787878; }
+
+.banner__overlay {
+  margin-right: auto;
+  margin-left: auto;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-color: rgba(0, 0, 0, 0.76);
+}
+
+.container__child {
+    display: -webkit-box;
+  display: block;
+  float: left;
+  -webkit-box-align: top;
+          align-items: top;
+  -webkit-box-pack: top;
+          justify-content: top;
+}
+
+.signup__thumbnail {
+  position: relative;
+  padding: 2rem;
+  display: -webkit-box;
+  flex-wrap: wrap;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.thumbnail__logo,
+.thumbnail__content,
+.thumbnail__links {
+  position: relative;
+  z-index: 2;
+}
+
+.thumbnail__logo {
+  align-self: flex-start;
+}
+
+.logo__shape {
+  fill: #fff;
+}
+
+.logo__text {
+    margin-right: auto;
+  margin-left: auto;
+  font-size: .8rem;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+
+.thumbnail__content {
+  align-self: top;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  color: white;
+}
+
+.heading--primary {
+  font-size: 1.999rem;
+}
+
+.heading--secondary {
+  font-size: 1.414rem;
+}
+
+.thumbnail__links {
+  align-self: flex-end;
+  width: 100%;
+}
+
+.thumbnail__links a {
+  font-size: 1rem;
+  color: #fff;
+}
+.thumbnail__links a:focus, .thumbnail__links a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.signup__form {
+  padding: 2.5rem;
+  display: flex;
+  clear:both;
+}
+
+label {
+  font-size: .85rem;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+.label2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #3c3c3c;
+  font-weight: 500;
+}
+
+.signup__form__container {
+margin-left: 2.5rem;
+width: 100%;
+}
+
+.form__container {
+margin-left: 2.5rem;
+}
+
+.form-control-hours {
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+.form-control-hours:focus {
+  border-color: #111;
+}
+
+
+.form-control {
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+.form-control:focus {
+  border-color: #111;
+}
+
+[type="text"] {
+  color: #111;
+}
+
+[type="password"] {
+  color: #111;
+}
+
+.btn--form {
+  padding: .5rem 2.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background: #111;
+  border-radius: 2.1875rem;
+}
+.btn--form:focus, .btn--form:hover {
+  background: #323232;
+}
+
+.signup__link {
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #999;
+}
+.signup__link:focus, .signup__link:hover {
+  color: #787878;
+}
+
+.support__link {
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #999;
+}
+.support__link:focus, .support__link:hover {
+  color: #787878;
+}
+
+.register__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #999;
+  bottom: 5%;
+}
+.register__link:focus, .register__link:hover {
+color: #787878; }
