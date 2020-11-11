@@ -51,6 +51,13 @@
 			orderList.appendChild(order);
 		}
 		initMap();
+		
+		//check if page opened due to drone management option
+		//hide dialog and show map if this is the case
+		const query = window.location.search;
+		if (query.includes("true")) { //show drone map
+			toggleDialog(3); //option 3 does not display animation
+		}
 	}
 	function showOrder(i) {
 		var adapter = new LocalStorage("orders");
@@ -174,8 +181,16 @@
 		//x is used to prevent the dialog from reappearing if one clicks on the map while the dialog is hidden
 		//this is because we want the user to be able to interact with the map
 		var img = document.getElementById("bodyShiftButton");
-		var menu = document.getElementById("toggle");
 		var container = document.getElementById("container");
+		
+		//move dialog without animation if drone manager is meant to open
+		if (x == 3) {
+			img.src = "misc/down.svg";
+			container.style.top = "-50%";
+			toggleMap(1);
+			return;
+		}
+		
 		//check if dialog is hidden already, uses image src tag for this
 		if (img.src.includes("up.svg")) { //dialog open
 			img.src = "misc/down.svg";
@@ -222,7 +237,7 @@
 			<a href="./orders.html" alt="Manage incoming/outgoing orders">
 			<img src="misc/orders.svg"></a></li>
 		<li>
-			<a href="./drones.html" alt="Manage/view drones">
+			<a href="./orders.html?drone=true" alt="Manage/view drones">
 			<img src="misc/drone.svg"></a></li>
 		<li>
 			<a href="./profile.html" alt="View profile">
