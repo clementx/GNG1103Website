@@ -192,7 +192,19 @@ margin-left: 2.5rem;
   border-color: #111;
 }
 
-
+.drop-zone {
+  max-width: 300px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: darkgray;
+  border: 4px dashed #3c3c3c;
+  border-radius: 10px;
+  position:relative;
+}
+ 
 .form-control {
   background-color: transparent;
   border-top: 0;
