@@ -1,3 +1,9 @@
+var rIndex,
+    table = document.getElementById("table");  
+let myEnterButton = document.getElementById("enter")
+let myEditButton = document.getElementById("edit")
+let myRemoveButton = document.getElementById("remove")
+let myAddphotoButton = document.getElementById("addPhoto")
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
@@ -70,3 +76,9 @@ function updateThumbnail(dropZoneElement, file) {
     thumbnailElement.style.backgroundImage = null;
   }
 }
+
+
+
+
+
+
