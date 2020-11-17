@@ -35,13 +35,13 @@
 			var order = document.createElement("li");
 			
 			if (i < 3) {
-				order.style.background = "#fc0303";
+				order.style.background = "#ffa099";
 			}
 			else if (i < 8) {
-				order.style.background = "#f8fc03";
+				order.style.background = "#e7e874";
 			}
 			else
-				order.style.background = "#07fc03";
+				order.style.background = "#89e687";
 				
 			order.appendChild(document.createTextNode("Order# "));
 			order.appendChild(document.createTextNode(139234+i));			
@@ -250,63 +250,7 @@
   <div class="page_content">
     <div class="order_list_div">
 		<nav>
-			<ul class="order_list" id="order_list_content">	
-				<li style="background:#fc0303">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#fc0303">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#f8fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#f8fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#f8fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#f8fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>	
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>
-				<li style="background:#07fc03">
-					Order# 123456
-					<br>12/02/2023
-				</li>				
+			<ul class="order_list" id="order_list_content">					
 			</ul>
 		</nav>
 	</div>
@@ -327,8 +271,8 @@
 			</div>
 		</div>
 		<div id="order_actions" class="chat">
-			<button class="halfButton" style="background:#07fc03" onclick="acceptReject(1)" id="accept_button">Accept</button>
-			<button class="halfButton" style="background:#fc0303" onclick="acceptReject(0)">Reject</button>
+			<button class="halfButton" style="background:#89e687" onclick="acceptReject(1)" id="accept_button">Accept</button>
+			<button class="halfButton" style="background:#ffa099" onclick="acceptReject(0)">Reject</button>
 			<button class="fullButton" onclick="testOrderID()">Report Problem</button>
 		</div>
 	</div>
@@ -336,6 +280,8 @@
 </div>
 <div id="toggle">
 	<img id="bodyShiftButton" src="misc/up.svg" onclick="toggleDialog(0)">
+</div>
+<div id="map_order_list">
 </div>
 </body>
 </html>
