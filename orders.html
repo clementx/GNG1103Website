@@ -182,11 +182,13 @@
 		//this is because we want the user to be able to interact with the map
 		var img = document.getElementById("bodyShiftButton");
 		var container = document.getElementById("container");
+		var childContainer = document.getElementById("map_order_list");
 		
 		//move dialog without animation if drone manager is meant to open
 		if (x == 3) {
 			img.src = "misc/down.svg";
 			container.style.top = "-50%";
+			childContainer.style.top = "80%";
 			toggleMap(1);
 			return;
 		}
@@ -194,30 +196,36 @@
 		//check if dialog is hidden already, uses image src tag for this
 		if (img.src.includes("up.svg")) { //dialog open
 			img.src = "misc/down.svg";
-			var pos = 50;
+			var mainPos = 50; //position of main dialog
+			var orderListPos = 100; //position of child dialog
 			var id = setInterval(frame, 1);
 			function frame() {
-				if (pos == -50) {
+				if (mainPos == -50) {
 					clearInterval(id);
 				}
 				else {
-					pos--;
-					container.style.top = pos + '%';
+					mainPos--;
+					container.style.top = mainPos + '%';
+					orderListPos = orderListPos - 0.2;
+					childContainer.style.top = orderListPos + '%';
 				}
 			}
 			toggleMap(1);
 		}
 		else if (img.src.includes("down.svg") && !x) { //dialog closed, also checks if user clicked on map
 			img.src = "misc/up.svg";
-			var pos = -50;
+			var mainPos = -50; //position of main dialog
+			var orderListPos = 80; //position of child dialog
 			var id = setInterval(frame, 1);
 			function frame() {
-				if (pos == 50) {
+				if (mainPos == 50) {
 					clearInterval(id);
 				}
 				else {
-					pos++;
-					container.style.top = pos + '%';
+					mainPos++;
+					container.style.top = mainPos + '%';
+					orderListPos = orderListPos + 0.2;
+					childContainer.style.top = orderListPos + '%';
 				}
 			}
 			toggleMap(0);
