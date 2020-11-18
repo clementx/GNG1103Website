@@ -1,6 +1,7 @@
 var mapHide = [{
 		"stylers": [{
-			"gamma": 3
+			"saturation" : -100,
+			"gamma": 0.1,
 		}]
 	}];
 	var mapShow = [{
@@ -11,26 +12,38 @@ var mapHide = [{
 	var map;
 
 	function load() {
-		var orderList = document.getElementById("order_list_content");
-		orderList.innerHTML = "";
-		for (var i = 0; i < 20; i++) {
-			var order = document.createElement("li");
-			
-			if (i < 3) {
-				order.style.background = "#ffa099";
-			}
-			else if (i < 8) {
-				order.style.background = "#e7e874";
-			}
-			else
-				order.style.background = "#89e687";
+		var orderList = document.getElementsByClassName("order_list");
+		orderList[0].innerHTML = "";
+		orderList[1].innerHTML = "";
+		for (var x = 0; x < 2; x++) {
+			for (var i = 0; i < 20; i++) {
+				var order = document.createElement("li");
 				
-			order.appendChild(document.createTextNode("Order# "));
-			order.appendChild(document.createTextNode(139234+i));			
-			order.appendChild(document.createElement("br"));
-			order.appendChild(document.createTextNode("22/03/2021"));
-			order.setAttribute("onclick","showOrder(" + i + ")");
-			orderList.appendChild(order);
+				if (i < 3) {
+					order.style.background = "#ffa099";
+				}
+				else if (i < 8) {
+					order.style.background = "#e7e874";
+				}
+				else
+					order.style.background = "#89e687";
+					
+				order.appendChild(document.createTextNode("Order# "));
+				order.appendChild(document.createTextNode(139234+i));			
+				order.appendChild(document.createElement("br"));
+				order.appendChild(document.createTextNode("22/03/2021"));
+				
+				if (x == 1) { 
+					//add specific class attribute to li elements in order to format sideways scrollbar
+					//also, call different function since showOrder() is only relevant when dialog is visible
+					order.setAttribute("class", "sidewaysScroll");
+					order.setAttribute("onclick","highlightDrone(" + i + ")");
+				} else {
+					order.setAttribute("onclick","showOrder(" + i + ")");
+				}
+				
+				orderList[x].appendChild(order);
+			}
 		}
 		initMap();
 		
@@ -188,7 +201,7 @@ var mapHide = [{
 				else {
 					mainPos--;
 					container.style.top = mainPos + '%';
-					orderListPos = orderListPos - 0.2;
+					orderListPos = orderListPos - 0.1;
 					childContainer.style.top = orderListPos + '%';
 				}
 			}
@@ -197,7 +210,7 @@ var mapHide = [{
 		else if (img.src.includes("down.svg") && !x) { //dialog closed, also checks if user clicked on map
 			img.src = "misc/up.svg";
 			var mainPos = -50; //position of main dialog
-			var orderListPos = 80; //position of child dialog
+			var orderListPos = 90; //position of child dialog
 			var id = setInterval(frame, 1);
 			function frame() {
 				if (mainPos == 50) {
@@ -206,7 +219,7 @@ var mapHide = [{
 				else {
 					mainPos++;
 					container.style.top = mainPos + '%';
-					orderListPos = orderListPos + 0.2;
+					orderListPos = orderListPos + 0.1;
 					childContainer.style.top = orderListPos + '%';
 				}
 			}
