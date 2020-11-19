@@ -29,17 +29,17 @@ var mapHide = [{
 					order.style.background = "#89e687";
 					
 				order.appendChild(document.createTextNode("Order# "));
-				order.appendChild(document.createTextNode(139234+i));			
+				order.appendChild(document.createTextNode(i));			
 				order.appendChild(document.createElement("br"));
 				order.appendChild(document.createTextNode("22/03/2021"));
 				
 				if (x == 1) { 
 					//add specific class attribute to li elements in order to format sideways scrollbar
-					//also, call different function since showOrder() is only relevant when dialog is visible
+					//also, call different function since getOrder() is only relevant when dialog is visible
 					order.setAttribute("class", "sidewaysScroll");
 					order.setAttribute("onclick","highlightDrone(" + i + ")");
 				} else {
-					order.setAttribute("onclick","showOrder(" + i + ")");
+					order.setAttribute("onclick","getOrder(" + i + ")");
 				}
 				
 				orderList[x].appendChild(order);
@@ -54,11 +54,65 @@ var mapHide = [{
 			toggleDialog(3); //option 3 does not display animation
 		}
 	}
-	function showOrder(i) {
-		var adapter = new LocalStorage("orders");
-		var db = low(adapter);
-		alert("ok");
-		alert(db.read());
+	
+	function parseItem(data, index) {
+		var output = data.split("/");
+		return output[index];
+	}
+	
+	//TODO: BROKEN
+	
+	function showOrder(data) {
+		var orderData = data.split("/");
+		var itemList = orderData[1].split(",");
+		var optionList = orderData[2].split(",");
+		var orderContent = document.getElementById("order_content_content");
+		var itemName; //needed to retrieve item name from database
+		orderContent.innerHTML = "";
+		
+		//go through items and list them
+		for (var z = 0; z < itemList.length; z++) {
+			var item = document.createElement("li");
+			var checkbox = document.createElement("input");
+			checkbox.setAttribute("type","checkbox");
+			checkbox.setAttribute("id", z);
+			
+			if (orderData[5] == "0") {
+				//disable checkbox if order not accepted ---------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>> 0 means not accepted, 1 means accepted, -1 means rejected, 2 means shipped
+				checkbox.setAttribute("disabled", "true");
+			}
+			
+			//get item name from database
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function(returnVal) {
+				if (this.readyState == 4 && this.status == 200) {
+					returnVal = parseItem(this.responseText, 0);
+				}
+			};
+			xhttp.open("GET", "misc/getitem.php?itemID="+itemID, true);
+			xhttp.send();
+			
+			item.appendChild(checkbox);
+			item.appendChild(document.createElement("br"));
+			item.appendChild(document.createTextNode(returnVal));
+			item.appendChild(document.createTextNode(" [# " + itemList[z] + "]"));
+			item.appendChild(document.createElement("br"));
+			item.appendChild(document.createTextNode("Options: "));
+			item.appendChild(document.createTextNode(optionList[z]));
+			orderContent.appendChild(item);
+		}
+	}
+	function getOrder(orderID) {
+		var xhttp = new XMLHttpRequest();
+		
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				showOrder(this.responseText);
+			}
+		};
+		
+		xhttp.open("GET", "orders/getorder.php?orderID="+orderID, true);
+		xhttp.send();
 	}
 	function switchChat() {
 		var title = document.getElementById("chat_title");
@@ -140,11 +194,6 @@ var mapHide = [{
 		//clear message input field
 		document.getElementById("msg").value = "";
 		document.getElementById("msg").placeholder = "Enter message...";
-	}
-	function testOrderID() {
-	alert("run");
-		var orderList = JSON.parse(data);
-		alert(orderList.orders[0].orderID);
 	}
 	function initMap() {
 		const start = { lat: 45.424721, lng: -75.695 }; //ottawa
